@@ -1,0 +1,15 @@
+<div class="drug-units-list__list" ng-show="loaded">
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-2">Drug Unit Id</div>
+    <div class="col-xs-2">Pick Number</div>
+    <div class="col-xs-2">Drug Type</div>
+    <div class="col-xs-2">Depot Name</div>
+    <div class="col-xs-2"></div>
+    <div class="col-xs-1"></div>
+  </div>
+  <drug-units-list-item ng-repeat="unit in $ctrl.drugUnitsList" unit="unit"></drug-units-list-item>
+</div>
+<div class="drug-units-list__placeholder" ng-hide="loaded">
+  <loading-spinner></loading-spinner>
+</div>
