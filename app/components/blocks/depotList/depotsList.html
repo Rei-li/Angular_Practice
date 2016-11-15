@@ -1,15 +1,16 @@
-<h2>Depots</h2>
-
-<div class="row">
-  <div class="col-xs-1"></div>
-  <div class="col-xs-2">Depot Name</div>
-  <div class="col-xs-2">Country Name</div>
-  <div class="col-xs-2">Drug Type Name</div>
-  <div class="col-xs-2">Drug Unit Id</div>
-  <div class="col-xs-2">Pick Number</div>
-  <div class="col-xs-1"></div>
+<div class="depots-list__list" ng-show="loaded">
+  <div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-2">Depot Name</div>
+    <div class="col-xs-2">Country Name</div>
+    <div class="col-xs-2">Drug Type Name</div>
+    <div class="col-xs-2">Drug Unit Id</div>
+    <div class="col-xs-2">Pick Number</div>
+    <div class="col-xs-1"></div>
+  </div>
+  <depot-list-item ng-repeat="depot in $ctrl.depotsList" depot="depot"></depot-list-item>
 </div>
-<depot-list-item ng-repeat="depot in $ctrl.depotsList" depot="depot"></depot-list-item>
-
-
-
+<div class="depots-list__placeholder" ng-hide="loaded">
+  <!--<p>Loading...</p>-->
+  <loading-spinner></loading-spinner>
+</div>

@@ -4,12 +4,14 @@ angular.module('app').component('depotList', {
 
 });
 
-function DepotListController($resource, appConfig) {
+function DepotListController($scope, $resource, appConfig) {
+  $scope.loaded = false;
   var ctrl = this;
   $resource(`${appConfig.backend}/depots` )
     .query()
     .$promise
     .then(function(list) {
-    ctrl.depotsList = list;
-  });
+      ctrl.depotsList = list;
+      $scope.loaded = true;
+    });
 }
