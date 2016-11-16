@@ -4,6 +4,7 @@
 const app = angular.module('app', [
     'ngRoute',
     'ngResource',
+    'ngDialog',
     'myApp.config',
 
     'myApp.view1',
@@ -15,7 +16,7 @@ const app = angular.module('app', [
     'myApp.accordionPanel',
     'myApp.accordion'
   ])
-  .config(['$locationProvider', '$routeProvider', '$resourceProvider', function ($locationProvider, $routeProvider, $resourceProvider) {
+  .config(['$locationProvider', '$routeProvider', '$resourceProvider', 'ngDialogProvider', function ($locationProvider, $routeProvider, $resourceProvider, ngDialogProvider) {
 
     $routeProvider
       .when('/', {
@@ -42,8 +43,8 @@ const app = angular.module('app', [
     }
 
     $resourceProvider.defaults.stripTrailingSlashes = false;
+    ngDialogProvider.setForceHtmlReload(true);
   }])
   .component('app', {
     templateUrl: 'app.html'
   });
-

@@ -1,0 +1,33 @@
+<div class="form-horizontal">
+  <h4>DrugUnit</h4>
+
+  <div class="form-group">
+    <div class="control-label col-xs-2">
+      <p>Drug Unit Id</p>
+    </div>
+    <div class="col-xs-10">
+      <p>{{$ctrl.unit.DrugUnitId}}</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="control-label col-xs-2">
+      <p>Depot</p>
+    </div>
+    <div class="col-xs10">
+      <select ng-model="selectedDepot"  ng-options="depot.Text for depot in depots">
+        <option value="">--none--</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-offset-2 col-xs-10">
+      <button class="btn btn-primary" ng-click="saveDetails()">Save</button>
+    </div>
+  </div>
+</div>
+
+<div ng-hide="loaded">
+  <loading-spinner></loading-spinner>
+</div>
