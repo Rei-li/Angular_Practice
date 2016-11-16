@@ -3,13 +3,12 @@ angular.module('app').component('drugUnitsList', {
   controller: DrugUnitsListController
 });
 
-function DrugUnitsListController($scope, $resource, appConfig) {
+function DrugUnitsListController($scope, api) {
   this.$onInit = function () {
     $scope.loaded = false;
     var ctrl = this;
-    $resource(`${appConfig.backend}/units` )
-      .query()
-      .$promise
+   
+    api.getDrugUnits()
       .then(function(list) {
         ctrl.drugUnitsList = list;
         $scope.loaded = true;

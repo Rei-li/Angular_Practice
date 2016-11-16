@@ -6,9 +6,10 @@ const app = angular.module('app', [
     'ngResource',
     'ngDialog',
     'myApp.config',
+    'myApp.api',
 
-    'myApp.view1',
-    'myApp.view2',
+    // 'myApp.view1',
+    // 'myApp.view2',
     'myApp.version',
 
     'myApp.userInfo',
@@ -20,16 +21,16 @@ const app = angular.module('app', [
 
     $routeProvider
       .when('/', {
-        controller: 'View1Ctrl',
-        templateUrl: 'view1/view1.html'
+        template: '<depot-list></depot-list>'
+        // templateUrl: 'view1/view1.html'
       })
       .when('/view1', {
-        templateUrl: 'view1/view1.html',
-        controller: 'View1Ctrl'
+        template: '<depot-list></depot-list>'
+        // templateUrl: 'view1/view1.html'
       })
       .when('/view2', {
-        templateUrl: 'view2/view2.html',
-        controller: 'View2Ctrl'
+        template: '<drug-units-list></drug-units-list>'
+        // templateUrl: 'view2/view2.html'
       })
       .otherwise({
         redirectTo: '/'

@@ -6,7 +6,7 @@ angular.module('app').component('drugUnitsListItem', {
   controller:DrugUnitsListItemController 
 });
 
-function DrugUnitsListItemController($scope,ngDialog, $rootScope, $resource, appConfig ){
+function DrugUnitsListItemController($scope,ngDialog, $rootScope, api ){
   var ctrl = this;
   this.$onInit = function () {
     $scope.showDetails = function (unit) {
@@ -19,20 +19,7 @@ function DrugUnitsListItemController($scope,ngDialog, $rootScope, $resource, app
       });
 
       $rootScope.$on('ngDialog.closing', function () {
-        var unit = $resource(
-          `${appConfig.backend}/units/:unitId`,
-          {
-            unitId:ctrl.unit.DrugUnitId
-          },
-          {
-            save: {
-              method: 'POST'
-            },
-            get: {
-              method: 'GET'
-            }
-          });
-        unit.get().$promise
+        api.getDrugUnit(ctrl.unit.DrugUnitId)
           .then(function(result) {
             ctrl.unit = result;
           });

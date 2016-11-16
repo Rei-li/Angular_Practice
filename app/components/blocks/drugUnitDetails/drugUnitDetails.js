@@ -8,14 +8,12 @@ angular.module('app').component('drugUnitDetails', {
 
 });
 
-function DrugUnitDetailsController($scope, $resource, $http, appConfig, ngDialog) {
+function DrugUnitDetailsController($scope, ngDialog, api) {
   var ctrl = this;
   $scope.loaded = false;
   $scope.selectedDepot = null;
 
-  $resource(`${appConfig.backend}/depots/lookup` )
-    .get()
-    .$promise
+  api.getDepotsLookup()
     .then(function(lookup) {
       $scope.depots =  lookup.DepotsList;
       $scope.loaded = true;
@@ -26,19 +24,8 @@ function DrugUnitDetailsController($scope, $resource, $http, appConfig, ngDialog
 
   $scope.saveDetails = function () {
     var selectedDepot = $scope.selectedDepot;
-    ctrl.unit.DepotId = selectedDepot != null ? selectedDepot.Value : null;
-    var unit = $resource(
-      `${appConfig.backend}/units/:unitId`,
-      {
-        unitId:ctrl.unit.DrugUnitId
-      },
-      {
-        save: {
-          method: 'POST'
-        }
-      });
-    unit
-      .save(ctrl.unit).$promise
+    ctrl.unit.DepotId = selectedDepot != null ? selectedDepot.Value : null;   
+    api.saveDrugUnit(ctrl.unit.DrugUnitId, ctrl.unit)
       .then(function() {
         ngDialog.closeAll();
       });
