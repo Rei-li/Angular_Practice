@@ -4,12 +4,13 @@ angular.module('app').component('depotList', {
 
 });
 
-function DepotListController($resource, appConfig) {
+function DepotListController(api) {
   var ctrl = this;
-  $resource(`${appConfig.backend}/depots` )
-    .query()
-    .$promise
+  ctrl.loaded = false;
+  
+  api.getDepots()
     .then(function(list) {
-    ctrl.depotsList = list;
-  });
+      ctrl.depotsList = list;
+      ctrl.loaded = true;
+    });
 }

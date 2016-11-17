@@ -3,18 +3,16 @@ angular.module('app').component('menu', {
   controller: MenuController
 });
 
-function MenuController($scope, $element, $attrs) {
+function MenuController() {
   var ctrl = this;
-
-  // This would be loaded by $http etc.
   ctrl.linksList = [
     {
-      value: '/#/view1',
-      text: 'View1'
+      value: '/#/depots',
+      text: 'Depots'
     },
     {
-      value: '/#/view2',
-      text: 'View2'
+      value: '/#/units',
+      text: 'Drug Units'
     }
   ];
 
