@@ -1,6 +1,6 @@
 <h2>Drug Units</h2>
-<div class="drug-units-list__list" ng-show="loaded">
-  <div class="row">
+<div class="list" ng-show="$ctrl.loaded">
+  <div class="row list__row list__header-row">
     <div class="col-xs-1"></div>
     <div class="col-xs-2">Drug Unit Id</div>
     <div class="col-xs-2">Pick Number</div>
@@ -11,6 +11,6 @@
   </div>
   <drug-units-list-item ng-repeat="unit in $ctrl.drugUnitsList" unit="unit"></drug-units-list-item>
 </div>
-<div class="drug-units-list__placeholder" ng-hide="loaded">
+<div class="drug-units-list__placeholder" ng-hide="$ctrl.loaded">
   <loading-spinner></loading-spinner>
 </div>

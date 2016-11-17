@@ -1,6 +1,6 @@
 <h2>Depots</h2>
-<div class="depots-list__list" ng-show="loaded">
-  <div class="row">
+<div class="list" ng-show="$ctrl.loaded">
+  <div class="row list__row list__header-row">
     <div class="col-xs-1"></div>
     <div class="col-xs-2">Depot Name</div>
     <div class="col-xs-2">Country Name</div>
@@ -11,6 +11,6 @@
   </div>
   <depot-list-item ng-repeat="depot in $ctrl.depotsList" depot="depot"></depot-list-item>
 </div>
-<div class="depots-list__placeholder" ng-hide="loaded">
+<div class="depots-list__placeholder" ng-hide="$ctrl.loaded">
   <loading-spinner></loading-spinner>
 </div>

@@ -2,32 +2,32 @@
   <h4>DrugUnit</h4>
 
   <div class="form-group">
-    <div class="control-label col-xs-2">
+    <div class="control-label col-xs-4">
       <p>Drug Unit Id</p>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-8">
       <p>{{$ctrl.unit.DrugUnitId}}</p>
     </div>
   </div>
 
   <div class="form-group">
-    <div class="control-label col-xs-2">
+    <div class="control-label col-xs-4">
       <p>Depot</p>
     </div>
-    <div class="col-xs10">
-      <select ng-model="selectedDepot"  ng-options="depot.Text for depot in depots">
+    <div class="col-xs-8">
+      <select class="form-control" ng-model="$ctrl.selectedDepot"  ng-options="depot.Text for depot in $ctrl.depots">
         <option value="">--none--</option>
       </select>
     </div>
   </div>
 
   <div class="form-group">
-    <div class="col-xs-offset-2 col-xs-10">
-      <button class="btn btn-primary" ng-click="saveDetails()">Save</button>
+    <div class="col-xs-offset-1">
+      <button class="btn btn-primary" ng-click="$ctrl.saveDetails()">Save</button>
     </div>
   </div>
 </div>
 
-<div ng-hide="loaded">
+<div ng-hide="$ctrl.loaded">
   <loading-spinner></loading-spinner>
 </div>

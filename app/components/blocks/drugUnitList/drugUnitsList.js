@@ -3,15 +3,14 @@ angular.module('app').component('drugUnitsList', {
   controller: DrugUnitsListController
 });
 
-function DrugUnitsListController($scope, api) {
+function DrugUnitsListController(api) {
+  var ctrl = this;
   this.$onInit = function () {
-    $scope.loaded = false;
-    var ctrl = this;
-   
+    ctrl.loaded = false;
     api.getDrugUnits()
       .then(function(list) {
         ctrl.drugUnitsList = list;
-        $scope.loaded = true;
+        ctrl.loaded = true;
       });
   };  
 }

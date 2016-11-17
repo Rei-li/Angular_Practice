@@ -4,13 +4,13 @@ angular.module('app').component('depotList', {
 
 });
 
-function DepotListController($scope, api) {
-  $scope.loaded = false;
+function DepotListController(api) {
   var ctrl = this;
-
+  ctrl.loaded = false;
+  
   api.getDepots()
     .then(function(list) {
       ctrl.depotsList = list;
-      $scope.loaded = true;
+      ctrl.loaded = true;
     });
 }

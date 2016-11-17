@@ -6,10 +6,10 @@ angular.module('app').component('drugUnitsListItem', {
   controller:DrugUnitsListItemController 
 });
 
-function DrugUnitsListItemController($scope,ngDialog, $rootScope, api ){
+function DrugUnitsListItemController(ngDialog, $rootScope, api ){
   var ctrl = this;
   this.$onInit = function () {
-    $scope.showDetails = function (unit) {
+    ctrl.showDetails = function (unit) {
       ngDialog.open({
         template: '<drug-unit-details unit="unit" ></drug-unit-details>',
         plain: true,

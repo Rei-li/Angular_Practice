@@ -8,22 +8,21 @@ angular.module('app').component('drugUnitDetails', {
 
 });
 
-function DrugUnitDetailsController($scope, ngDialog, api) {
+function DrugUnitDetailsController(ngDialog, api) {
   var ctrl = this;
-  $scope.loaded = false;
-  $scope.selectedDepot = null;
+  ctrl.loaded = false;
+  ctrl.selectedDepot = null;
 
   api.getDepotsLookup()
     .then(function(lookup) {
-      $scope.depots =  lookup.DepotsList;
-      $scope.loaded = true;
-      $scope.selectedDepot = $.grep($scope.depots, function(e){ return e.Value == ctrl.unit.DepotId; })[0];
-
+      ctrl.depots =  lookup.DepotsList;
+      ctrl.loaded = true;
+      ctrl.selectedDepot = $.grep(ctrl.depots, function(e){ return e.Value == ctrl.unit.DepotId; })[0];
     });
 
 
-  $scope.saveDetails = function () {
-    var selectedDepot = $scope.selectedDepot;
+  ctrl.saveDetails = function () {
+    var selectedDepot = ctrl.selectedDepot;
     ctrl.unit.DepotId = selectedDepot != null ? selectedDepot.Value : null;   
     api.saveDrugUnit(ctrl.unit.DrugUnitId, ctrl.unit)
       .then(function() {

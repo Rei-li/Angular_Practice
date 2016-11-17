@@ -1,11 +1,11 @@
-<div class="row">
+<div class="row list__row">
   <div class="col-xs-1"></div>
   <div class="col-xs-2">{{$ctrl.unit.DrugUnitId}}</div>
   <div class="col-xs-2">{{$ctrl.unit.PickNumber}}</div>
   <div class="col-xs-2">{{$ctrl.unit.DrugTypeName}}</div>
   <div class="col-xs-2">{{$ctrl.unit.DepotName}}</div>
   <div class="col-xs-2">
-    <button ng-click="showDetails({unit:$ctrl.unit})">Edit Depot Association</button>
+    <button class="btn btn-primary" ng-click="$ctrl.showDetails({unit:$ctrl.unit})">Edit Depot Association</button>
   </div>
   <div class="col-xs-1"></div>
 </div>
