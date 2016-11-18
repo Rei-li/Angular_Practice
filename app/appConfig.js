@@ -1,4 +1,4 @@
 angular.module('myApp.config', [])
   .constant('appConfig', {
-    'backend': 'http://localhost/Suvoda.TechnicalTest.Web/api'
+    'backend': 'http://tech-task.azurewebsites.net/api'
   });
